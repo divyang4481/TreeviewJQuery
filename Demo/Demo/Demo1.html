@@ -1,0 +1,712 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<script src="Scripts/jquery-1.10.2.min.js"></script>-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <script src="Scripts/interface.js"></script>
+    <style type="text/css" media="all">
+        /*body {
+            background: #fff;
+            height: 100%;
+            font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            min-height: 600px;
+        }*/
+
+        .myTree,
+        .myTree ul {
+            list-style: none;
+            padding-left: 22px;
+        }
+
+        .expandImage {
+            margin-right: 4px;
+        }
+
+        .folderImage {
+        }
+
+        .textHolder {
+            height: 16px;
+            line-height: 16px;
+            padding-left: 6px;
+        }
+
+        span.dropOver {
+            background-color: #00c;
+            color: #fff;
+            height: 16px;
+            line-height: 16px;
+            padding-left: 6px;
+        }
+
+        .treeItem {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+    <hr />
+    <hr />
+    <div class="row">
+        <div class="col-lg-5">
+            <ul id="sourceSettingsContainer" class="accessContainer table-bordered">
+                <li class="treeItem streeitem" data-treeitemtype="module" data-moduleid="mod1">
+                    <!--<img src="images/folder.png" class="folderImage" />-->
+                    <span class="glyphicon glyphicon-tree-conifer"></span>
+                    <span class="textHolder">Module1</span>
+                    <ul>
+                        <li class="treeItem streeitem" data-treeitemtype="functionalobject" data-objectid="obj1">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object1</span>
+                            <ul style="display: none;">
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">View</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Add</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Delete</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Edit</span></li>
+                            </ul>
+                        </li>
+                        <li class="treeItem streeitem" data-treeitemtype="functionalobject" data-objectid="obj2">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object2</span>
+                            <ul style="display: none;">
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Import</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">export</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Amend</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Close</span></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="treeItem streeitem" data-treeitemtype="module" data-moduleid="mod2">
+                    <!--<img src="images/folder.png" class="folderImage" />-->
+                    <span class="glyphicon glyphicon-tree-conifer"></span>
+                    <span class="textHolder">Module2</span>
+                    <ul>
+                        <li class="treeItem streeitem" data-treeitemtype="functionalobject" data-objectid="obj5">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object5</span>
+                            <ul style="display: none;">
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">reset</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">start</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">stop</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">pause</span></li>
+                            </ul>
+                        </li>
+                        <li class="treeItem streeitem" data-treeitemtype="functionalobject" data-objectid="obj6">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object6</span>
+                            <ul style="display: none;">
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">end</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">start</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Amend</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Close</span></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="treeItem streeitem" data-treeitemtype="module" data-moduleid="mod3">
+                    <!--<img src="images/folder.png" class="folderImage" />-->
+                    <span class="glyphicon glyphicon-tree-conifer"></span>
+                    <span class="textHolder">Module3</span>
+                    <ul>
+                        <li class="treeItem streeitem" data-treeitemtype="functionalobject" data-objectid="obj9">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object9</span>
+                            <ul style="display: none;">
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">reset</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">start</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">stop</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">pause</span></li>
+                            </ul>
+                        </li>
+                        <li class="treeItem streeitem" data-treeitemtype="functionalobject" data-objectid="obj11">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object11</span>
+                            <ul style="display: none;">
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">end</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">start</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Amend</span></li>
+                                <li class="treeItem streeitem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Close</span></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+
+
+        <!--<hr />-->
+        <div class="col-lg-5">
+            <ul id="roleSettingsContainer" class="accessContainer table-bordered">
+                <li class="treeItem" data-treeitemtype="module" data-moduleid="mod1">
+                    <!--<img src="images/folder.png" class="folderImage" />-->
+                    <span class="glyphicon glyphicon-tree-conifer"></span>
+                    <span class="textHolder">Module1</span>
+                    <ul>
+                        <li class="treeItem" data-treeitemtype="functionalobject" data-objectid="obj1">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object1</span>
+                            <ul style="display: none;">
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">View</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Add</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Delete</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Edit</span></li>
+                            </ul>
+                        </li>
+                        <!--<li class="treeItem" data-treeitemtype="functionalobject" data-objectid="obj2">
+                            <img src="images/folder.png" class="folderImage" data-objectid="obj2" /><span class="textHolder">Object2</span>
+                            <ul style="display: none;">
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Import</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">export</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Amend</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Close</span></li>
+                            </ul>
+                        </li>-->
+
+                    </ul>
+                </li>
+
+                <li class="treeItem" data-treeitemtype="module" data-moduleid="mod2">
+                    <!--<img src="images/folder.png" class="folderImage" />-->
+                    <span class="glyphicon glyphicon-tree-conifer"></span>
+                    <span class="textHolder">Module2</span>
+                    <ul>
+                        <li class="treeItem" data-treeitemtype="functionalobject" data-objectid="obj5">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object5</span>
+                            <ul style="display: none;">
+                                <li class="treeItem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">reset</span></li>
+                                <li class="treeItem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">start</span></li>
+                                <li class="treeItem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">stop</span></li>
+                                <li class="treeItem" data-treeitemtype="operation"><img src="images/folder.png" class="folderImage" /><span class="textHolder">pause</span></li>
+                            </ul>
+                        </li>
+                        <li class="treeItem" data-treeitemtype="functionalobject" data-objectid="obj6">
+                            <img src="images/folder.png" class="folderImage" /><span class="textHolder">Object6</span>
+                            <ul style="display: none;">
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">end</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">start</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Amend</span></li>
+                                <li class="treeItem"><img src="images/folder.png" class="folderImage" /><span class="textHolder">Close</span></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                    tree = $('.accessContainer');
+                    if (tree.length = 2) {
+                       
+                        for (var i = 0; i < 2; i++) {
+                            $('li', tree.get(i)).each(
+                                function () {
+                                    subbranch = $('ul', this);
+                                    if (subbranch.size() > 0) {
+                                        if (subbranch.eq(0).css('display') == 'none') {
+                                            $(this).prepend('<img src="images/bullet_toggle_plus.png" width="16" height="16" class="expandImage" />');
+                                        } else {
+                                            $(this).prepend('<img src="images/bullet_toggle_minus.png" width="16" height="16" class="expandImage" />');
+                                        }
+                                    } else {
+                                        $(this).prepend('<img src="images/spacer.gif" width="16" height="16" class="expandImage" />');
+                                    }
+                                }
+                            );                          
+                            $(tree.get(i)).on("click", 'img.expandImage', function () {
+                                if (this.src.indexOf('spacer') == -1) {
+                                    subbranch = $('ul', this.parentNode).eq(0);
+                                    if (subbranch.css('display') == 'none') {
+                                        subbranch.show();
+                                        this.src = 'images/bullet_toggle_minus.png';
+                                    } else {
+                                        subbranch.hide();
+                                        this.src = 'images/bullet_toggle_plus.png';
+                                    }
+                                }
+                            });
+                        }
+                    }
+
+
+                    //$('#roleSettingsContainer').sortable({
+                    //    start: function (event, ui) {
+                    //        indexBefore = getIndex(ui.item, $('#roleSettingsContainer li'));
+                    //    },
+                    //    stop: function (event, ui) {
+                    //        var indexAfter = getIndex(ui.item, $("#roleSettingsContainer li"));
+                    //        if (indexBefore == indexAfter) return;
+                    //        if (indexBefore < indexAfter) {
+                    //            $($("#div_container div")[indexBefore]).insertAfter(
+                    //                $($("#div_container div")[indexAfter]));
+                    //        }
+                    //        else {
+                    //            $($("#div_container div")[indexBefore]).insertBefore(
+                    //                $($("#div_container div")[indexAfter]));
+                    //        }
+                    //    }
+                    //});
+
+
+                    $('li.treeItem').Draggable(
+                                 {
+                                     revert: true,
+                                     helper:'clone',
+                                     autoSize: true,
+                                    // ghosting: true
+                                 }
+                        );
+
+                    $('#sourceSettingsContainer').Droppable({
+                        accept: 'treeItem',
+                        hoverclass: 'dropOver',
+                        activeclass: 'fakeClass',
+                        tollerance: 'pointer',
+                        onout: function () {
+                            if (this.expanderTime) {
+                                window.clearTimeout(this.expanderTime);
+                                this.expanded = false;
+                            }
+                        },
+                        //drop: function (event, ui) {
+                        //   // alert("success");
+                        //},
+                        
+                        ondrop: function (dropped) {
+                            var x = $(dropped).hasClass('streeitem');
+                            if (x != undefined && x == true){
+                                return;
+                            }                            
+                             if (this.expanderTime) {
+                                            window.clearTimeout(this.expanderTime);
+                                            this.expanded = false;
+                             }
+
+                                      
+                             if ($(dropped).siblings().length == 0)
+                             {
+                                 var droptype = $(dropped).attr('data-treeitemtype');
+                                 if (droptype != 'module')
+                                 {                                     
+                                     var foundobject = $(dropped).parent().parent();
+                                     //debugger
+                                     var grandparent = foundobject.parent().parent().attr('data-treeitemtype');
+                                     if (foundobject.siblings().length == 0 && grandparent == 'module') {
+
+                                         foundobject.parent().parent().remove();
+                                     }
+                                     else {
+                                         foundobject.remove();
+                                     }
+
+                                    // debugger
+                                 }
+                                 
+                                 
+
+                             }
+                             $(dropped).remove();
+                             return;
+                                        //subbranch.eq(0).append(dropped);
+                                        //oldBranches = $('li', oldParent);
+                                        //if (oldBranches.size() == 0) {
+                                        //    $('img.expandImage', oldParent.parentNode).src('images/spacer.gif');
+                                        //    $(oldParent).remove();
+                                        //}
+                                        //expander = $('img.expandImage', this.parentNode);
+                                        //if (expander.get(0).src.indexOf('spacer') > -1)
+                                        //    expander.get(0).src = 'images/bullet_toggle_minus.png'
+                            
+
+                        }
+                    });
+                    // $('span.textHolder').Droppable({
+                    $('#roleSettingsContainer').Droppable({
+                        accept: 'treeItem',
+                                hoverclass: 'dropOver',
+                                activeclass: 'fakeClass',
+                                greedy: true,
+                                tollerance: 'pointer',
+                                onhover: function (dragged) {
+                                    if (!this.expanded) {
+                                        subbranches = $('ul', this.parentNode);
+                                        if (subbranches.size() > 0) {
+                                            subbranch = subbranches.eq(0);
+                                            this.expanded = true;
+                                            if (subbranch.css('display') == 'none') {
+                                                var targetBranch = subbranch.get(0);
+                                                this.expanderTime = window.setTimeout(
+                                                    function () {
+                                                        $(targetBranch).show();
+                                                        $('img.expandImage', targetBranch.parentNode).eq(0).attr('src', 'images/bullet_toggle_minus.png');
+                                                        $.recallDroppables();
+                                                    },
+                                                    500
+                                                );
+                                            }
+                                        }
+                                    }
+                                },                               
+
+                                onout: function () {
+                                    if (this.expanderTime) {
+                                        window.clearTimeout(this.expanderTime);
+                                        this.expanded = false;
+                                    }
+                                },
+                                
+                                ondrop: function (dropped) {
+
+                                    var x = $(dropped).hasClass('streeitem');
+                                    if (this.parentNode == dropped)
+                                        return;
+                                    if (this.expanderTime) {
+                                        window.clearTimeout(this.expanderTime);
+                                        this.expanded = false;
+                                    }
+                                   
+                                    if (x == true)
+                                    {
+                                        var droptype = $(dropped).attr('data-treeitemtype');
+                                        
+                                        
+                                        if (droptype == "module")
+                                        {
+                                            var moduleId = $(dropped).attr('data-moduleid');
+                                            var root = $('ul', this.parentNode);
+                                            if (root.size() == 0) {
+                                                $(this).after('<ul></ul>');
+                                                root = $('ul', this.parentNode);
+                                            }
+
+                                            var foundmodule = $("*[data-moduleid='" + moduleId + "']", this.parentNode);
+                                            if (foundmodule.length > 0)
+                                            {
+                                                foundmodule.remove();
+                                            }
+                                            var clonemodule = $(dropped).clone();
+                                            clonemodule.removeClass('streeitem');
+                                            root.eq(0).append(clonemodule);
+                                        }
+                                        else if (droptype == "functionalobject")
+                                        {
+                                            var functionalObjectId = $(dropped).attr('data-objectid');
+                                            var root = $('ul', this.parentNode);
+                                            if (root.size() == 0) {
+                                                $(this).after('<ul></ul>');
+                                                root = $('ul', this.parentNode);
+                                            }
+
+                                            var foundobject = $("*[data-objectid='" + functionalObjectId + "']", this.parentNode);
+                                            //debugger
+                                            if (foundobject.length == 0) {
+
+                                                var foundclonemodule = $(dropped).parent().parent().clone();
+
+                                                var moduleId = foundclonemodule.attr('data-moduleid');
+                                                var foundmodule = $("*[data-moduleid='" + moduleId + "']", this.parentNode);
+                                                
+                                                //object module does not exist
+                                                if (foundmodule.length == 0) {
+                                                    //   foundmodule.remove();
+                                                   
+                                                    foundclonemodule.unwrap();
+                                                    foundclonemodule.find("li").remove();
+                                                    foundclonemodule.removeClass('streeitem');
+                                                    foundclonemodule.find('li').removeClass('streeitem');
+                                                   //
+
+                                                    var cloneobject = $(dropped).clone();
+                                                    cloneobject.removeClass('streeitem');
+                                                    cloneobject.find('li').removeClass('streeitem');
+                                                    foundclonemodule.find('ul').eq(0).append(cloneobject);
+                                                    debugger
+                                                    root.eq(0).append(foundclonemodule);
+                                                    $('li.treeItem', root).Draggable(
+                                                         {
+                                                             revert: true,
+                                                             helper: 'clone',
+                                                             autoSize: true
+                                                             // ghosting: true
+                                                         }
+                                                );
+                                                }
+                                                //object module does  exist
+                                                else {
+
+                                                    //$(dropped).removeClass('streeitem');
+                                                    var cloneobject = $(dropped).clone();
+                                                    cloneobject.removeClass('streeitem');
+                                                    cloneobject.find('li').removeClass('streeitem');
+                                                    foundmodule.find('ul').eq(0).append(cloneobject);
+
+                                                    $('li.treeItem', foundmodule).Draggable(
+                                                         {
+                                                             revert: true,
+                                                             helper: 'clone',
+                                                             autoSize: true
+                                                             // ghosting: true
+                                                         }
+                                                );
+                                                }
+                                                //foundmodule.unwrap();
+                                                //foundmodule.eq(0).append(dropped);
+                                            }
+                                            else {
+
+                                                foundmodule = foundobject.parent().parent();
+                                                foundobject.remove();                                                                                                
+                                                var cloneobject = $(dropped).clone();
+                                                cloneobject.removeClass('streeitem');
+                                                cloneobject.find('li').removeClass('streeitem');
+                                                foundmodule.find('ul').eq(0).append(cloneobject);
+                                                $('li.treeItem', cloneobject).Draggable(
+                                                         {
+                                                             revert: true,
+                                                             helper: 'clone',
+                                                             autoSize: true
+                                                             // ghosting: true
+                                                         }
+                                                );
+                                                
+                                            }   
+                                           
+                                            
+                                        }
+                                        else if (droptype == "operation")
+                                        {
+                                            
+                                            
+                                            var functionalObj = $(dropped).parent().parent();
+                                            var module = $(dropped).parent().parent().parent().parent();
+                                            
+                                            var functionalObjectId = functionalObj.attr('data-objectid');
+                                           
+                                            if (functionalObjectId != undefined)
+                                            {
+                                                //find functional object in  right hand side
+                                                var foundfunctionalObject = $("*[data-objectid='" + functionalObjectId + "']", this.parentNode);
+                                                // module and object both are available  at right side
+                                                if (foundfunctionalObject != undefined && foundfunctionalObject.length > 0)
+                                                {
+                                                    
+                                                    var cloneOperation = $(dropped).clone();
+                                                    cloneOperation.removeClass('streeitem');
+                                                    cloneOperation.find('li').removeClass('streeitem');
+                                                    foundfunctionalObject.find('ul').eq(0).append(cloneOperation);
+                                                    $('li.treeItem', foundfunctionalObject).Draggable(
+                                                             {
+                                                                 revert: true,
+                                                                 helper: 'clone',
+                                                                 autoSize: true
+                                                                 // ghosting: true
+                                                             }
+                                                    );
+                                                }
+                                                else
+                                                {
+                                                    
+                                                    var moduleId = module.attr('data-moduleid');
+                                                    var foundmodule = $("*[data-moduleid='" + moduleId + "']", this.parentNode);
+                                                    //module is there but  object is does not exists
+                                                    if (foundmodule != undefined && foundmodule.length > 0) {
+                                                                                                               
+                                                        
+                                                        var cloneobject = functionalObj.clone();
+                                                        cloneobject.find("li").remove();
+                                                        cloneobject.removeClass('streeitem');
+                                                        //cloneobject.find('li').removeClass('streeitem');
+
+                                                        var cloneOperation = $(dropped).clone();
+                                                        cloneOperation.removeClass('streeitem');
+                                                        cloneOperation.find('li').removeClass('streeitem');
+                                                        cloneobject.find('ul').eq(0).append(cloneOperation);
+
+                                                        foundmodule.find('ul').eq(0).append(cloneobject);
+
+
+                                                        $('li.treeItem', foundmodule).Draggable(
+                                                             {
+                                                                 revert: true,
+                                                                 helper: 'clone',
+                                                                 autoSize: true
+                                                                 // ghosting: true
+                                                             }
+                                                    );
+
+                                                    }
+                                                    else {
+                                                        
+                                                        var clonemodule = module.clone();
+                                                        clonemodule.find("li").remove();
+                                                        
+                                                        var cloneobject = functionalObj.clone();
+                                                        
+                                                        cloneobject.find("li").remove();
+                                                        cloneobject.removeClass('streeitem');
+                                                        //cloneobject.find('li').removeClass('streeitem');
+
+                                                        var cloneOperation = $(dropped).clone();
+                                                        cloneOperation.removeClass('streeitem');
+                                                        cloneOperation.find('li').removeClass('streeitem');
+                                                        cloneobject.find('ul').eq(0).append(cloneOperation);
+
+                                                        clonemodule.find('ul').eq(0).append(cloneobject);
+                                                        clonemodule.removeClass('streeitem');
+
+                                                        var root = $('ul', this.parentNode);
+                                                        if (root.size() == 0) {
+                                                            $(this).after('<ul></ul>');
+                                                            root = $('ul', this.parentNode);
+                                                        }
+
+                                                        
+                                                        root.eq(0).append(clonemodule);
+
+                                                        $('li.treeItem', root).Draggable(
+                                                             {
+                                                                 revert: true,
+                                                                 helper: 'clone',
+                                                                 autoSize: true
+                                                                 // ghosting: true
+                                                             }
+                                                    );
+
+
+                                                    }
+                                                }
+                                                //if (foundfunctionalObject == undefined || foundfunctionalObject.length == 0)
+                                                //{
+                                                //    // find module from left side if not available  in right side
+                                                //    //var moduleId = functionalObj.attr('data-moduleid');
+                                                //    //var foundmodule = $("*[data-moduleid='" + moduleId + "']", this.parentNode);
+                                                //}
+                                            }
+                                            
+                                            
+
+                                        }
+
+
+
+
+
+                                        
+
+                                        //subbranch = $('ul', this.parentNode);
+                                        //if (subbranch.size() == 0) {
+                                        //    $(this).after('<ul></ul>');
+                                        //    subbranch = $('ul', this.parentNode);
+                                        //}
+                                       // oldParent = dropped.parentNode;
+                                        //subbranch.eq(0).append(dropped);
+                                        //var cloneobject = $(dropped).clone();
+                                       // var val = $(dropped).attr('data-moduleid');
+
+                                       // subbranch.eq(0).append(cloneobject);
+                                        //$(ui.draggable).clone()
+                                        //oldBranches = $('li', oldParent);
+                                        //if (oldBranches.size() == 0) {
+                                        //    $('img.expandImage', oldParent.parentNode).src('images/spacer.gif');
+                                        //    $(oldParent).remove();
+                                        //}
+                                        //expander = $('img.expandImage', this.parentNode);
+                                        //if (expander.get(0).src.indexOf('spacer') > -1)
+                                        //    expander.get(0).src = 'images/bullet_toggle_minus.png';
+                                    }
+                                    
+                                   
+                                   
+                        }
+                    });
+
+                    //$('span.textHolder').Droppable(
+                    //    {
+                    //        accept: 'treeItem',
+                    //        hoverclass: 'dropOver',
+                    //        activeclass: 'fakeClass',
+                    //        tollerance: 'pointer',
+                    //        onhover: function (dragged) {
+                    //            if (!this.expanded) {
+                    //                subbranches = $('ul', this.parentNode);
+                    //                if (subbranches.size() > 0) {
+                    //                    subbranch = subbranches.eq(0);
+                    //                    this.expanded = true;
+                    //                    if (subbranch.css('display') == 'none') {
+                    //                        var targetBranch = subbranch.get(0);
+                    //                        this.expanderTime = window.setTimeout(
+                    //                            function () {
+                    //                                $(targetBranch).show();
+                    //                                $('img.expandImage', targetBranch.parentNode).eq(0).attr('src', 'images/bullet_toggle_minus.png');
+                    //                                $.recallDroppables();
+                    //                            },
+                    //                            500
+                    //                        );
+                    //                    }
+                    //                }
+                    //            }
+                    //        },
+                    //        onout: function () {
+                    //            if (this.expanderTime) {
+                    //                window.clearTimeout(this.expanderTime);
+                    //                this.expanded = false;
+                    //            }
+                    //        },
+                    //        ondrop: function (dropped) {
+                    //            if (this.parentNode == dropped)
+                    //                return;
+                    //            if (this.expanderTime) {
+                    //                window.clearTimeout(this.expanderTime);
+                    //                this.expanded = false;
+                    //            }
+                    //            subbranch = $('ul', this.parentNode);
+                    //            if (subbranch.size() == 0) {
+                    //                $(this).after('<ul></ul>');
+                    //                subbranch = $('ul', this.parentNode);
+                    //            }
+                    //            oldParent = dropped.parentNode;
+                    //            subbranch.eq(0).append(dropped);
+                    //            oldBranches = $('li', oldParent);
+                    //            if (oldBranches.size() == 0) {
+                    //                $('img.expandImage', oldParent.parentNode).src('images/spacer.gif');
+                    //                $(oldParent).remove();
+                    //            }
+                    //            expander = $('img.expandImage', this.parentNode);
+                    //            if (expander.get(0).src.indexOf('spacer') > -1)
+                    //                expander.get(0).src = 'images/bullet_toggle_minus.png';
+                    //        }
+                    //    }
+                    //);
+                    //$('li.treeItem').Draggable(
+                    //    {
+                    //        revert: true,
+                    //        autoSize: true,
+                    //        ghosting: true/*,
+                    //	onStop		: function()
+                    //	{
+                    //		$('span.textHolder').each(
+                    //			function()
+                    //			{
+                    //				this.expanded = false;
+                    //			}
+                    //		);
+                    //	}*/
+                    //    }
+                    //);
+                }
+            );
+        </script>
+</body>
+</html>
